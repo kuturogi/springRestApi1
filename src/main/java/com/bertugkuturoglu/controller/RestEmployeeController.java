@@ -4,10 +4,7 @@ import com.bertugkuturoglu.model.Employee;
 import com.bertugkuturoglu.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,11 @@ public class RestEmployeeController {
     public  List<Employee> getEmployeeWithParams(@RequestParam(name = "firstName", required = false) String firstName
                                                  , @RequestParam(name = "lastName" , required = false) String lastName ) {
         return employeeService.getEmployeeWithParams(firstName, lastName);
+    }
+
+    @PostMapping(path = "/save-employee")
+    public Employee saveEmployee(@RequestBody Employee newEmployee) {
+        return employeeService.saveEmployee(newEmployee);
     }
 
 

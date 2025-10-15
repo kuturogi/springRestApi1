@@ -44,4 +44,10 @@ public class EmployeeRepository {
         }
         return employeeWithParams;
     }
+
+
+    public Employee saveEmployee(Employee newemployee) {
+        employeeList.add(newemployee);
+        return newemployee;
+    }
 }
