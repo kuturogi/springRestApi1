@@ -18,4 +18,9 @@ public class EmployeeService {
         return employeeRepository.GetAllEmployeelist();
 
     }
+
+    public List<Employee>getEmployeeWithParams(String firstName, String lastName){
+
+        return employeeRepository.getEmployeelistWithParams(firstName,lastName);
+    }
 }
