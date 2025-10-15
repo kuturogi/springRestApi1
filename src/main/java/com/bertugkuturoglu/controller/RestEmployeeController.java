@@ -1,6 +1,7 @@
 package com.bertugkuturoglu.controller;
 
 import com.bertugkuturoglu.model.Employee;
+import com.bertugkuturoglu.model.UpdateEmployeeRequest;
 import com.bertugkuturoglu.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,12 @@ public class RestEmployeeController {
     public boolean deleteEmployeee(@PathVariable(name = "id") String id){
 
         return employeeService.deleteEmployee(id);
+    }
+
+    @PutMapping(path = "/update-employee/{id}")
+    public Employee updateEmployee(@PathVariable(name = "id") String id ,
+                                   @RequestBody UpdateEmployeeRequest request){
+        return employeeService.updateEmployee(id,request);
     }
 
 
