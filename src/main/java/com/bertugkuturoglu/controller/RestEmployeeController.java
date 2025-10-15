@@ -33,6 +33,11 @@ public class RestEmployeeController {
         return employeeService.saveEmployee(newEmployee);
     }
 
+    @DeleteMapping(path = "/delete-employee/{id}")
+    public boolean deleteEmployeee(@PathVariable(name = "id") String id){
+
+        return employeeService.deleteEmployee(id);
+    }
 
 
 
